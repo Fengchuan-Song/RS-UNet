@@ -6,8 +6,8 @@ import torch.backends.cudnn as cudnn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
-# from MyNets.Unet_resnet import Net
-from MyNets.Unet_resnet_weight import Net
+from MyNets.Unet_resnet import Net
+# from MyNets.Unet_resnet_weight import Net
 from nets.unet_training import weights_init
 from utils.callbacks import LossHistory
 from utils.dataloader import UnetDataset, unet_dataset_collate
@@ -113,7 +113,7 @@ if __name__ == "__main__":
     # ------------------------------#
     #   数据集路径
     # ------------------------------#
-    VOCdevkit_path = '../autodl-tmp/VOCdevkit'
+    VOCdevkit_path = 'VOCdevkit'
     # ---------------------------------------------------------------------#
     #   建议选项：
     #   种类少（几类）时，设置为True
@@ -145,7 +145,7 @@ if __name__ == "__main__":
     num_workers = 0
     
     # 权重存储路径
-    save_dir = '../autodl-tmp/RA-UNet_Weight/'
+    save_dir = './Weights/'
     weight_name = 'best_weights.pth'
     if not os.path.exists(save_dir):
         os.mkdir(save_dir)
