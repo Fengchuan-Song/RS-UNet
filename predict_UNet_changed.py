@@ -127,13 +127,13 @@ if __name__ == "__main__":
             if not ref:
                 break
             # 格式转变，BGRtoRGB
-            # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             # 转变成Image
-            # frame = Image.fromarray(np.uint8(frame))
+            frame = Image.fromarray(np.uint8(frame))
             # 进行检测
-            frame = np.array(unet.detect_image(frame)[1])
+            frame = np.array(unet.detect_image(frame))
             # RGBtoBGR满足opencv显示格式
-            # frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+            frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
 
             fps = (fps + (1. / (time.time() - t1))) / 2
             print("fps= %.2f" % fps)
